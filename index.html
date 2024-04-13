@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+  --sun: #f87b14;
+  --moon: black;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sun,
+.moon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  transition: top 2s, left 2s;
+}
+
+.sun {
+  background: var(--sun);
+}
+
+.moon {
+  background: var(--moon);
+}
+
+.eclipse {
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+
+</style>
+</head>
+<body>
+
+<div class="sun"></div>
+<div class="moon"></div>
+
+<script>
+// Função para alternar entre os estados de eclipse e não eclipse
+function toggleEclipse() {
+  const sun = document.querySelector('.sun');
+  sun.classList.toggle('eclipse');
+}
+
+// Função para iniciar a animação em loop
+function startAnimation() {
+  setInterval(toggleEclipse, 4000); // Altera a cada 4 segundos
+}
+
+// Inicia a animação
+startAnimation();
+</script>
+
+</body>
+</html>
